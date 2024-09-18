@@ -1,5 +1,7 @@
 # Use Tensorflow and Polars with GPU on Windows
 
+> This works only for NVIDIA GPU's that have compatability for CUDA. [**check here**](https://developer.nvidia.com/cuda-gpus), under the 'GeForce and TITAN Products' if your GPU is supported (if you are using a laptop look on the 'Notebooks' side)
+
 Tensorflow does not use your GPU, when running on Windows, because that functionality relies on [cuDF](https://docs.rapids.ai/api/cudf/stable/), which is only available on Linux. Tensorflow used to, but [support for 'native-Windows' was dropped in TensorFlow v2.10](https://www.tensorflow.org/install/pip#windows-native:~:text=Caution%3A%20TensorFlow%202.10%20was%20the%20last%20TensorFlow%20release%20that%20supported%20GPU%20on%20native%2DWindows.%20Starting%20with%20TensorFlow%202.11%2C%20you%20will%20need%20to%20install%20TensorFlow%20in%20WSL2%2C%20or%20install%20tensorflow%20or%20tensorflow%2Dcpu%20and%2C%20optionally%2C%20try%20the%20TensorFlow%2DDirectML%2DPlugin). The latest version is 2.17, and does not support it :(
 
 In this README you will get a step-by-step guide on how to create a Docker Linux container where Tensorflow **does** have access to training with a GPU. In some cases, during my testing, training with my GPU _(NVIDIA RTX 3060 Laptop, 6GB vram)_ was 30 times faster than training on just my CPU.
